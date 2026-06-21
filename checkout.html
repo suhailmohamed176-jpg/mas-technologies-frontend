@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - MAS Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo-square">MAS</div>
+            <span class="logo-full">MAS Technologies</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <section class="checkout-page">
+        <h1>Checkout</h1>
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <h2>Delivery Information</h2>
+                <form id="checkoutForm">
+                    <input type="text" id="fullName" placeholder="Full Name" required>
+                    <input type="tel" id="phoneNumber" placeholder="Phone Number" required>
+                    <input type="text" id="deliveryAddress" placeholder="Delivery Address">
+                    <select id="deliveryOption">
+                        <option value="pickup">Shop Pickup (Free)</option>
+                        <option value="nairobi">Nairobi Delivery (Ksh 200)</option>
+                        <option value="outside">Outside Nairobi (Ksh 500)</option>
+                    </select>
+                    <button type="submit" class="btn-primary">Place Order</button>
+                </form>
+            </div>
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="orderItems"></div>
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="checkoutSubtotal">Ksh 0</span>
+                </div>
+                <div class="summary-row">
+                    <span>Delivery:</span>
+                    <span id="checkoutDelivery">Ksh 0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="checkoutTotal">Ksh 0</span>
+                </div>
+                <div class="payment-info">
+                    <h3>M-Pesa Payment</h3>
+                    <p>Pay to Till Number: <strong>3248421</strong></p>
+                    <p>Business Name: <strong>Suhail Mohamed Hassan</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAS Technologies</h3>
+                <p>Premium tech accessories delivered across Kenya.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 0746488634</p>
+                <p><i class="fas fa-map-marker-alt"></i> Stanbank House, 6th Floor, Shop B621</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MAS Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

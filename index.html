@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAS Technologies - Premium Tech Accessories</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo-square">MAS</div>
+            <span class="logo-full">MAS Technologies</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your <span class="highlight">Tech</span> Destination</h1>
+            <p>Premium gadgets delivered across Kenya with same-day delivery in Nairobi</p>
+            <a href="products.html" class="cta-btn">Shop Now →</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card" onclick="filterCategory('smartwatches')">
+                <i class="fas fa-clock"></i>
+                <h3>Smartwatches</h3>
+                <p>Stylish, Smart, Indispensable</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('earpods')">
+                <i class="fas fa-headphones"></i>
+                <h3>Earpods</h3>
+                <p>Crystal clear sound</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('speakers')">
+                <i class="fas fa-music"></i>
+                <h3>Speakers</h3>
+                <p>Powerful sound</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('powerbanks')">
+                <i class="fas fa-battery-full"></i>
+                <h3>Powerbanks</h3>
+                <p>Stay charged all day</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('chargers')">
+                <i class="fas fa-charging-station"></i>
+                <h3>Chargers</h3>
+                <p>Fast & reliable</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('accessories')">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Accessories</h3>
+                <p>Everything you need</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid" id="featuredGrid"></div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAS Technologies</h3>
+                <p>Premium tech accessories delivered across Kenya.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 0746488634</p>
+                <p><i class="fas fa-map-marker-alt"></i> Stanbank House, 6th Floor, Shop B621</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MAS Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

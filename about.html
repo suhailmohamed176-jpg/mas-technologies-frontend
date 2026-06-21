@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - MAS Technologies</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo-container">
+            <div class="logo-square">MAS</div>
+            <span class="logo-full">MAS Technologies</span>
+        </div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span></a>
+        </nav>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+    </header>
+
+    <section class="about-page">
+        <h1>About MAS Technologies</h1>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>Your Trusted Tech Partner</h2>
+                <p>MAS Technologies is a premier provider of high-quality tech accessories in Kenya. We are committed to bringing you the latest gadgets at affordable prices.</p>
+                <h3>Our Mission</h3>
+                <p>To make premium technology accessible to everyone in Kenya through reliable products and exceptional customer service.</p>
+                <h3>Our Values</h3>
+                <ul>
+                    <li><strong>Quality</strong> - We only sell products we trust</li>
+                    <li><strong>Integrity</strong> - Honest pricing and transparent service</li>
+                    <li><strong>Customer First</strong> - Your satisfaction is our priority</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="images/about-image.jpg" alt="MAS Technologies" onerror="this.src='https://placehold.co/600x400/f5f2eb/1a1a1a?text=MAS+Technologies'">
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MAS Technologies</h3>
+                <p>Premium tech accessories delivered across Kenya.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="products.html">Products</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p><i class="fas fa-phone"></i> 0746488634</p>
+                <p><i class="fas fa-map-marker-alt"></i> Stanbank House, 6th Floor, Shop B621</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 MAS Technologies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
