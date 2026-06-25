@@ -1,5 +1,5 @@
 // ========================================
-// MAS TECHNOLOGIES - JAVASCRIPT
+// MS PREMIUM - JAVASCRIPT
 // ========================================
 
 // --- Configuration ---
@@ -181,7 +181,7 @@ function setupCheckoutForm() {
         const totalText = document.getElementById('checkoutTotal').innerText.replace('Ksh ', '');
         const total = parseInt(totalText) || 0;
         
-        let message = '🛍️ *NEW ORDER - MAS Technologies* 🛍️\n\n';
+        let message = '🛍️ *NEW ORDER - MS Premium* 🛍️\n\n';
         message += `👤 *Customer:* ${name}\n`;
         message += `📞 *Phone:* ${phone}\n`;
         message += `📍 *Address:* ${address || 'Shop Pickup'}\n`;
