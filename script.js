@@ -41,9 +41,12 @@ function showToast(msg) {
 // --- Fetch Products from Strapi ---
 async function fetchProducts() {
     try {
-        const response = await fetch(`${API_URL}/products?populate=*`);
+        const response = await fetch(`${API_URL}/products`);
         const data = await response.json();
-        return data.data;
+        // Handle both cases: data.data or data directly
+        const products = data.data || data;
+        console.log('Products fetched:', products);
+        return products;
     } catch (error) {
         console.error('Error fetching products:', error);
         return [];
@@ -58,27 +61,41 @@ async function renderProducts(containerId, limit = null) {
     const products = await fetchProducts();
     const filtered = limit ? products.slice(0, limit) : products;
     
-    if (filtered.length === 0) {
+    if (!filtered || filtered.length === 0) {
         container.innerHTML = '<p class="no-products">No products found. Add some in Strapi!</p>';
         return;
     }
     
     container.innerHTML = filtered.map(product => {
-        const imageUrl = product.attributes.image?.data?.attributes?.url 
-            ? `https://mas-technologies-backend-01.onrender.com${product.attributes.image.data.attributes.url}`
-            : 'https://placehold.co/400x400/f5f2eb/1a1a1a?text=No+Image';
+        // Get the product data (handle both formats)
+        const productData = product.attributes || product;
+        const productId = product.id;
+        const productName = productData.name || product.name;
+        const productPrice = productData.price || product.price;
+        const productCategory = productData.category || product.category;
+        const productDesc = productData.description || product.description;
+        
+        // Image URL (if available)
+        let imageUrl = 'https://placehold.co/400x400/f5f2eb/1a1a1a?text=' + encodeURIComponent(productName);
+        
+        // If there's an image in Strapi
+        if (productData.image && productData.image.url) {
+            imageUrl = `https://mas-technologies-backend-01.onrender.com${productData.image.url}`;
+        } else if (product.image) {
+            imageUrl = product.image;
+        }
         
         return `
             <div class="product-card">
-                <img src="${imageUrl}" alt="${product.attributes.name}">
-                <span class="category-tag">${product.attributes.category}</span>
-                <h3>${product.attributes.name}</h3>
-                <p>${product.attributes.description}</p>
-                <div class="price">Ksh ${product.attributes.price.toLocaleString()}</div>
+                <img src="${imageUrl}" alt="${productName}" onerror="this.src='https://placehold.co/400x400/f5f2eb/1a1a1a?text=${encodeURIComponent(productName)}'">
+                <span class="category-tag">${productCategory || 'Uncategorized'}</span>
+                <h3>${productName}</h3>
+                <p>${productDesc ? productDesc.substring(0, 80) + (productDesc.length > 80 ? '...' : '') : 'No description'}</p>
+                <div class="price">Ksh ${productPrice ? productPrice.toLocaleString() : '0'}</div>
                 <button onclick='addToCart(${JSON.stringify({
-                    id: product.id,
-                    name: product.attributes.name,
-                    price: product.attributes.price,
+                    id: productId,
+                    name: productName,
+                    price: productPrice || 0,
                     image: imageUrl
                 }).replace(/'/g, "\\'")})'>Add to Cart</button>
             </div>
