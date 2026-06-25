@@ -3,7 +3,7 @@
 // ========================================
 
 // --- Configuration ---
-const API_URL = 'https://your-strapi-backend.onrender.com/api'; // CHANGE THIS!
+const API_URL = 'https://mas-technologies-backend-01.onrender.com/api';
 
 // --- Cart Functions ---
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -65,7 +65,7 @@ async function renderProducts(containerId, limit = null) {
     
     container.innerHTML = filtered.map(product => {
         const imageUrl = product.attributes.image?.data?.attributes?.url 
-            ? `https://your-strapi-backend.onrender.com${product.attributes.image.data.attributes.url}`
+            ? `https://mas-technologies-backend-01.onrender.com${product.attributes.image.data.attributes.url}`
             : 'https://placehold.co/400x400/f5f2eb/1a1a1a?text=No+Image';
         
         return `
@@ -114,8 +114,6 @@ function displayCartItems() {
     
     document.getElementById('subtotal').innerText = `Ksh ${subtotal.toLocaleString()}`;
     document.getElementById('total').innerText = `Ksh ${subtotal.toLocaleString()}`;
-    
-    // Delivery fee
     document.getElementById('deliveryFee').innerText = 'Ksh 0';
 }
 
@@ -145,7 +143,6 @@ function displayCheckoutItems() {
     
     document.getElementById('checkoutSubtotal').innerText = `Ksh ${subtotal.toLocaleString()}`;
     
-    // Delivery calculation
     const deliverySelect = document.getElementById('deliveryOption');
     if (deliverySelect) {
         updateDeliveryFee();
@@ -184,7 +181,6 @@ function setupCheckoutForm() {
         const totalText = document.getElementById('checkoutTotal').innerText.replace('Ksh ', '');
         const total = parseInt(totalText) || 0;
         
-        // Build WhatsApp message
         let message = '🛍️ *NEW ORDER - MAS Technologies* 🛍️\n\n';
         message += `👤 *Customer:* ${name}\n`;
         message += `📞 *Phone:* ${phone}\n`;
@@ -199,16 +195,13 @@ function setupCheckoutForm() {
         message += `\n💰 *TOTAL:* Ksh ${total}\n`;
         message += `💳 *Payment:* M-Pesa Till 3248421 (Suhail Mohamed Hassan)`;
         
-        // Send to WhatsApp
         const phoneNumber = '254746488634';
         const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
         
-        // Clear cart
         cart = [];
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCount();
         
-        // Open WhatsApp
         alert('✅ Order placed! Redirecting to WhatsApp to confirm...');
         window.open(whatsappUrl, '_blank');
         window.location.href = 'index.html';
@@ -248,7 +241,7 @@ async function searchProducts() {
     
     container.innerHTML = filtered.map(product => {
         const imageUrl = product.attributes.image?.data?.attributes?.url 
-            ? `https://your-strapi-backend.onrender.com${product.attributes.image.data.attributes.url}`
+            ? `https://mas-technologies-backend-01.onrender.com${product.attributes.image.data.attributes.url}`
             : 'https://placehold.co/400x400/f5f2eb/1a1a1a?text=No+Image';
         
         return `
@@ -280,12 +273,10 @@ function goToCheckout() {
 
 // --- Page Initialization ---
 document.addEventListener('DOMContentLoaded', function() {
-    // Home page featured products
     if (document.getElementById('featuredGrid')) {
         renderProducts('featuredGrid', 6);
     }
     
-    // Products page
     if (document.getElementById('productGrid')) {
         renderProducts('productGrid');
         
@@ -296,18 +287,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (categoryFilter) categoryFilter.addEventListener('change', searchProducts);
     }
     
-    // Cart page
     if (document.getElementById('cartItems')) {
         displayCartItems();
     }
     
-    // Checkout page
     if (document.getElementById('orderItems')) {
         displayCheckoutItems();
         setupCheckoutForm();
     }
     
-    // Contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
@@ -317,7 +305,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Check URL params on products page
     if (window.location.pathname.includes('products.html')) {
         const params = new URLSearchParams(window.location.search);
         const category = params.get('category');
