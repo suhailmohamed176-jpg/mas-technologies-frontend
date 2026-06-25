@@ -1,5 +1,5 @@
 /* ========================================
-   MAS TECHNOLOGIES - COMPLETE STYLESHEET
+   MS PREMIUM TECH - COMPLETE STYLESHEET
    ======================================== */
 
 * {
@@ -34,23 +34,18 @@ body {
     gap: 12px;
 }
 
-.logo-square {
+.logo-image {
     width: 40px;
     height: 40px;
-    background: #1a1a1a;
-    color: #ffffff;
-    font-weight: 700;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
+    object-fit: contain;
+    border-radius: 8px;
 }
 
 .logo-full {
     font-size: 1.5rem;
     font-weight: 700;
     color: #1a1a1a;
+    letter-spacing: -0.5px;
 }
 
 nav {
